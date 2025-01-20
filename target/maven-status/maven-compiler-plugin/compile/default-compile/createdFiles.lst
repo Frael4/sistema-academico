@@ -1,0 +1,6 @@
+com\ug\App.class
+com\ug\calificaciones\GestorCalificaciones.class
+com\ug\cursos\Curso.class
+com\ug\calificaciones\Calificacion.class
+com\ug\asistencias\Asistencia.class
+com\ug\asistencias\GestorAsistencia.class

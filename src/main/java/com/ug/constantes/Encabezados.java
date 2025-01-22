@@ -10,15 +10,13 @@ public class Encabezados {
         "Telefono",
         "Direccion",
         "Fecha Nacimiento",
-        "Estado",
+        "Carrera",
         "Fecha Ingreso"
     };
 
     public final static String COL_ASISTENCIAS [] = {
         "ID",
-        "ID Estudiante",
-        "ID Curso",
-        "Fecha",
+        "Estudiante",
         "Asistencia"
     };
 
@@ -29,8 +27,7 @@ public class Encabezados {
         "Creditos",
         "Horas",
         "Tipo",
-        "Estado",
-        "ID Carrera",
+        "Carrera",
         "Cupos"
     };
 }

@@ -13,7 +13,7 @@ Proyecto final de la materia Gestión de la Configuración del Software version 
 - Ejecutar en cmd `mvn clean install`
 - Ejecutar en cmd `mvn deploy`
 
-En el disco local se creara una carpeta llamada *despliegue-proyecto-maven* con el archivo .jar, en esa ruta abrir el cmd y ejecutar ` java -cp sistema-academico-1.0.0.jar com.ug.SistemaAcademico`
+En el disco local se creara una carpeta llamada "*despliegue-proyecto-maven*" con el archivo .jar, en esa ruta abrir el cmd y ejecutar ` java -cp sistema-academico-1.0.0.jar com.ug.SistemaAcademico`
 
 ## Pantalla principal
 

@@ -24,15 +24,19 @@ public class EstudianteController {
     static List<Estudiante> estudiantes = new ArrayList<>(Arrays.asList(
             new Estudiante(++idEstudiante, "Juan", "Perez", "0956986020", "jose@email.com", "0939262243", "Olmedo",
                     "04/07/1998",
-                    "Activo", "01/01/2021"),
+                    "Activo", "01/01/2021", 1),
             new Estudiante(++idEstudiante, "Juan", "Perez", "0956986020", "jose@email.com", "0939262243", "Olmedo",
                     "04/07/1998",
-                    "Activo", "01/01/2021")));
+                    "Activo", "01/01/2021", 2)));
 
     /*
      * Agregar un estudiante
      */
-    public static String agregarEstudiante(Estudiante estudiante) {
+    public static String agregarEstudiante(Estudiante estudiante) throws EstudianteException {
+
+        if(!estudiante.esValidoCorreo())
+            throw new EstudianteException("Correo no valido");
+
         estudiante.setIdEstudiante(++idEstudiante);
         estudiantes.add(estudiante);
 
@@ -61,6 +65,8 @@ public class EstudianteController {
                 e.setDireccion(estudiante.getDireccion());
                 e.setFechaNacimiento(estudiante.getFechaNacimiento());
                 e.setFechaIngreso(estudiante.getFechaIngreso());
+                if(estudiante.getIdCarrera() != 0)
+                    e.setIdCarrera(estudiante.getIdCarrera());
 
                 System.out.println("Estudiante editado con éxito");
                 return "Estudiante editado con éxito";

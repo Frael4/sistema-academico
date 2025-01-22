@@ -34,6 +34,9 @@ public class AsistenciaController {
                 .orElse(null);
     }
 
+    /* *
+     *  
+     */
     public void mostrarAsistencias() {
         for (Asistencia asistencia : asistencias) {
             System.out.println(asistencia);

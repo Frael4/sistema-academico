@@ -1,5 +1,8 @@
 package com.ug.model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,4 +22,18 @@ public class Estudiante {
     private String fechaNacimiento;
     private String estado;
     private String fechaIngreso;
+
+    private int idCarrera;
+
+    /**
+     * Valida correo
+     * @return
+     */
+    public boolean esValidoCorreo() {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(correo);
+
+        return matcher.matches();
+    }
 }

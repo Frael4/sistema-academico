@@ -5,14 +5,14 @@
   <groupId>com.ug</groupId>
   <artifactId>sistema-academico</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>sistema-academico</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source> <!-- JDK 21 -->
-    <maven.compiler.target>1.8</maven.compiler.target> <!-- JDK 21 -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -30,6 +30,13 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>internal-repository</id>
+      <url>file:///C:/despliegue-proyecto-maven/</url>
+    </repository>
+  </distributionManagement>
 
   <build>
     <pluginManagement>

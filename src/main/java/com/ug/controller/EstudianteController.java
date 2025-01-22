@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @Getter
 public class EstudianteController {
 
-    /*
+    /**
      * Id del estudiante
      */
     private static int idEstudiante = 0;
-    /*
+    /**
      * Lista de estudiantes, con algunos seteados
      */
     static List<Estudiante> estudiantes = new ArrayList<>(Arrays.asList(
@@ -29,12 +29,16 @@ public class EstudianteController {
                     "04/07/1998",
                     "Activo", "01/01/2021", 2)));
 
-    /*
+    /**
      * Agregar un estudiante
+     * 
+     * @param estudiante
+     * @return
+     * @throws EstudianteException
      */
     public static String agregarEstudiante(Estudiante estudiante) throws EstudianteException {
 
-        if(!estudiante.esValidoCorreo())
+        if (!estudiante.esValidoCorreo())
             throw new EstudianteException("Correo no valido");
 
         estudiante.setIdEstudiante(++idEstudiante);
@@ -43,8 +47,11 @@ public class EstudianteController {
         return "Estudiante agregado con éxito";
     }
 
-    /*
+    /**
      * Eliminar un estudiante
+     * 
+     * @param id
+     * @return
      */
     public static String eliminarEstudiante(int id) {
         estudiantes.removeIf(estudiante -> estudiante.getIdEstudiante() == id);
@@ -52,8 +59,12 @@ public class EstudianteController {
         return "Estudiante eliminado con éxito";
     }
 
-    /*
+    /**
      * Editar un estudiante
+     * 
+     * @param estudiante
+     * @return
+     * @throws EstudianteException
      */
     public static String editarEstudiante(Estudiante estudiante) throws EstudianteException {
         for (Estudiante e : estudiantes) {
@@ -65,7 +76,7 @@ public class EstudianteController {
                 e.setDireccion(estudiante.getDireccion());
                 e.setFechaNacimiento(estudiante.getFechaNacimiento());
                 e.setFechaIngreso(estudiante.getFechaIngreso());
-                if(estudiante.getIdCarrera() != 0)
+                if (estudiante.getIdCarrera() != 0)
                     e.setIdCarrera(estudiante.getIdCarrera());
 
                 System.out.println("Estudiante editado con éxito");
@@ -76,15 +87,20 @@ public class EstudianteController {
 
     }
 
-    /*
-     * Buscar un estudiante por nombre
+    /**
+     * Buscar un estudiante por su id
+     * 
+     * @param nombre
+     * @return
      */
     public static Estudiante buscarEstudiante(String nombre) {
         return estudiantes.stream().filter(((c) -> c.getNombre().equals(nombre))).findFirst().orElse(null);
     }
 
-    /*
-     * Obtener la lista de estudiantes
+    /**
+     * Obtener estudiantes
+     * 
+     * @return
      */
     public static List<Estudiante> obtenerEstudiantes() {
         return new ArrayList<>(estudiantes);

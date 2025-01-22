@@ -12,35 +12,52 @@ import lombok.NoArgsConstructor;
 @Getter
 public class AsistenciaController {
 
-    List<Asistencia> asistencias = new ArrayList<Asistencia>();
+    static List<Asistencia> asistencias = new ArrayList<Asistencia>();
 
-    public void agregarAsistencia(Asistencia asistencia) {
+    /**
+     * Agrega una asistencia
+     * @param asistencia
+     */
+    public static String agregarAsistencia(Asistencia asistencia) {
         asistencias.add(asistencia);
-        System.out.println("Asistencia agregada correctamente");
+        System.out.println("Asistencia agregada con éxito");
+        return "Asistencia agregada con éxito";
     }
 
-    public void eliminarAsistencia(Asistencia asistencia) {
+    /**
+     * Elimina una asistencia
+     * @param asistencia
+     */
+    public static void eliminarAsistencia(Asistencia asistencia) {
         asistencias.removeIf((asistenciaActual) -> asistenciaActual.getIdAsistencia() == asistencia.getIdAsistencia());
         System.out.println("Asistencia eliminada correctamente");
     }
 
-    public void modificarAsistencia(Asistencia asistencia, Asistencia asistenciaNueva) {
+    /**
+     * Modifica una asistencia
+     * @param asistencia
+     * @param asistenciaNueva
+     */
+    public static void modificarAsistencia(Asistencia asistencia, Asistencia asistenciaNueva) {
         asistencias.set(asistencias.indexOf(asistencia), asistenciaNueva);
         System.out.println("Asistencia modificada correctamente");
     }
 
-    public Asistencia buscarAsistencia(int idAsistencia) {
+    /**
+     * Busca una asistencia por su id
+     * @param idAsistencia
+     * @return
+     */
+    public static Asistencia buscarAsistencia(int idAsistencia) {
         return asistencias.stream().filter(((asistencia) -> asistencia.getIdAsistencia() == idAsistencia)).findFirst()
                 .orElse(null);
     }
 
     /* *
-     *  
+     *  Lista de asistencias
      */
-    public void mostrarAsistencias() {
-        for (Asistencia asistencia : asistencias) {
-            System.out.println(asistencia);
-        }
+    public static List<Asistencia> mostrarAsistencias() {
+        return new ArrayList<>(asistencias);
     }
 
 }

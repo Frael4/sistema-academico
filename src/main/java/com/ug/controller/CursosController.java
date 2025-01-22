@@ -15,12 +15,12 @@ import lombok.NoArgsConstructor;
 @Getter
 public class CursosController {
 
-    /* 
+    /**
      * 
      */
     private static int idCurso = 0;
 
-    /*
+    /**
      * Lista de cursos, con algunos seteados
      */
     private static List<Curso> cursos = new ArrayList<>(Arrays.asList(
@@ -30,8 +30,11 @@ public class CursosController {
             new Curso(4, "Algebra", "Curso de Algebra 1", 8, 120, "Obligatorio", "A", 2, 35),
             new Curso(5, "Calculo Diferencial", "Curso de Calculo 1", 8, 120, "Obligatorio", "A", 3, 35)));
 
-    /*
+    /**
      * Agregar un curso
+     * @param curso
+     * @return
+     * @throws CursoExcepcion
      */
     public static String agregarCurso(Curso curso) throws CursoExcepcion {
 
@@ -41,18 +44,26 @@ public class CursosController {
         curso.setIdCurso(++idCurso);
         cursos.add(curso);
         System.out.println("Curso agregado correctamente!");
-        return "Curso agregado correctamente!";
+        return "Curso agregado con éxito";
     }
 
-    /*
+    /**
      * Eliminar un curso
+     * @param idCurso
+     * @return
      */
     public static String eliminarCurso(int idCurso) {
         cursos.removeIf((c) -> c.getIdCurso() == idCurso);
         System.out.println("Curso eliminado correctamente!");
-        return "Curso eliminado correctamente!";
+        return "Curso eliminado con éxito";
     }
 
+    /**
+     * Editar un curso
+     * @param curso
+     * @return
+     * @throws CursoExcepcion
+     */
     public static String editarCurso(Curso curso) throws CursoExcepcion {
 
         for (Curso c : cursos) {
@@ -66,43 +77,52 @@ public class CursosController {
                 if (curso.getIdCarrera() != 0)
                     c.setIdCarrera(curso.getIdCarrera());
                 c.setCuposCurso(curso.getCuposCurso());
-                return "Curso modificado correctamente!";
+                return "Curso editado con éxito";
             }
         }
 
         throw new CursoExcepcion("Curso no encontrado");
     }
 
-    /*
-     * Buscar un curso
+    /**
+     * Buscar un curso por su id
+     * @param idCurso
+     * @return
      */
     public static Curso buscarCurso(int idCurso) {
         return cursos.stream().filter(((c) -> c.getIdCurso() == idCurso)).findFirst().orElse(null);
     }
 
-    /*
+    /**
      * Obtener cursos
      */
     public static List<Curso> obtenerCursos() {
         return new ArrayList<>(cursos);
     }
 
-    /*
-     * Obtener los cursos segun su un lista de ids
+    /**
+     * Obtener cursos por id
+     * @param idsCursos
+     * @return
      */
     public static List<Curso> obtenerCursosPorId(List<Integer> idsCursos) {
         return cursos.stream().filter((c) -> idsCursos.contains(c.getIdCurso())).collect(Collectors.toList());
     }
 
-    /*
-     * Devolver el ultimo curso agregado
+    /**
+     * Obtener cursos por id de carrera
+     * @param idCarrera
+     * @return
      */
     public static int devolverUltimoCursoId() {
         return cursos.get(cursos.size() - 1).getIdCurso();
     }
 
-    /*
-     * Actualizar cupos del curso
+    /**
+     * Actualizar cupos de un curso
+     * @param idCurso
+     * @param cupo
+     * @return
      */
     public static String actualizarCupos(int idCurso, int cupo) {
         for (Curso c : cursos) {

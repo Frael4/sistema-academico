@@ -40,6 +40,9 @@ public class EstudianteController {
 
         if (!estudiante.esValidoCorreo())
             throw new EstudianteException("Correo no valido");
+        
+        if (!estudiante.validarCedula(estudiante.getCedula()))
+            throw new EstudianteException("Cedula no valida");
 
         estudiante.setIdEstudiante(++idEstudiante);
         estudiantes.add(estudiante);

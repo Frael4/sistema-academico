@@ -27,6 +27,7 @@ public class Estudiante {
 
     /**
      * Valida correo
+     * 
      * @return
      */
     public boolean esValidoCorreo() {
@@ -35,5 +36,24 @@ public class Estudiante {
         Matcher matcher = pattern.matcher(correo);
 
         return matcher.matches();
+    }
+
+    /**
+     * Valida cedula
+     * 
+     * @return
+     */
+    public boolean validarCedula(String cedula) {
+        // Verificar longitud
+        if (cedula == null || cedula.length() != 10) {
+            return false;
+        }
+
+        // Verificar que la cedula contenga solo números
+        if (!cedula.matches("\\d+")) {
+            return false;
+        }
+
+        return true;
     }
 }

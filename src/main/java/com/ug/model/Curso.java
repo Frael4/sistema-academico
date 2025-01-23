@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class Curso {
 
-    public Curso(String nombre){
+    public Curso(String nombre) {
         this.nombreCurso = nombre;
     }
 
@@ -25,12 +25,29 @@ public class Curso {
 
     /**
      * Valida cantidad maxima de cupos = 40
+     * 
      * @return true or false
      */
-    public boolean esValidoCantidadCuposMax(){
+    public boolean esValidoCantidadCuposMax() {
         return (cuposCurso > 40);
     }
-    //private List<Integer> estudiantes;
+    // private List<Integer> estudiantes;
+
+    /**
+     * Valida que la cantidad de creditos sea menor o igual a 120
+     * @return
+     */
+    public boolean esValidoHorasTotal() {
+        return (horasCurso <= 120 && horasCurso > 80);
+    }
+
+    /**
+     * Valida que la cantidad de creditos sea menor o igual a 10
+     * @return
+     */
+    public boolean esValidoCreditos() {
+        return (creditosCurso <= 10);
+    }
 
     @Override
     public String toString() {

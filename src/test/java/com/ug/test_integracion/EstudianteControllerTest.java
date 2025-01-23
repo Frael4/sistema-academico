@@ -15,7 +15,7 @@ public class EstudianteControllerTest {
     @DisplayName("Test de Agregar Estudiante")
     public void testAgregarEstudiante(){
         String mensaje = "";
-        Estudiante estudiante = new Estudiante(0, "Jose", "Anchundia", "0985698620", "jose@email.com", "0929362243", "Av. Rumichaca", "14/08/2000", "A", "12/01/2025", 1);
+        Estudiante estudiante = new Estudiante(0, "Jose", "Anchundia", "095698602", "jose@email.com", "0929362243", "Av. Rumichaca", "14/08/2000", "A", "12/01/2025", 1);
 
         try {
             mensaje = EstudianteController.agregarEstudiante(estudiante);
@@ -41,7 +41,7 @@ public class EstudianteControllerTest {
     public void testEditarEstudiante(){
         String mensaje = "";
 
-        Estudiante estudiante = new Estudiante(0, "Jose", "Soriano", "0985698620", "jose@email.com", "0929362243", "Av. Rumichaca", "14/08/2000", "A", "12/01/2025", 1);
+        Estudiante estudiante = new Estudiante(0, "Jose", "Soriano", "0956986020", "jose@email.com", "0929362243", "Av. Rumichaca", "14/08/2000", "A", "12/01/2025", 1);
 
         try {
             mensaje = EstudianteController.editarEstudiante(estudiante);

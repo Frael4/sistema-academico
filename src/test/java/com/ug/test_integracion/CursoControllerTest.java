@@ -16,7 +16,7 @@ public class CursoControllerTest {
     public void testAgregarCurso() {
         String mensaje = "";
 
-        Curso curso = new Curso(0, "Literatura", "Curso de literatura", 4, 80, "Teorico", "Activo", 2, 25);
+        Curso curso = new Curso(0, "Literatura", "Curso de literatura", 40, 40, "Teorico", "Activo", 2, 50);
 
         try {
             mensaje = CursosController.agregarCurso(curso);

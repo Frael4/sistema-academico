@@ -40,6 +40,9 @@ public class CursosController {
 
         if(curso.esValidoCantidadCuposMax())
             throw new CursoExcepcion("Cantidad de cupos no puede ser mayor a 40");
+        
+        if(curso.esValidoHorasTotal())
+            throw new CursoExcepcion("Cantidad de horas no puede ser mayor a 120 ni menor a 80");
 
         curso.setIdCurso(++idCurso);
         cursos.add(curso);

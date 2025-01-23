@@ -225,7 +225,7 @@ public class CursoView extends JFrame {
         int cupos = Integer.parseInt(txtCupos.getText().strip());
 
         if (nombreCurso.isEmpty() || descripcion.isEmpty() || creditos == 0 || horas == 0 || tipoCurso.isEmpty()
-                || cbCarrera.getSelectedIndex() == 0 || cupos == 0) {
+                || cupos == 0) {
             JOptionPane.showMessageDialog(null, "Todos los campos son requeridos");
             return;
         } else {
@@ -233,6 +233,12 @@ public class CursoView extends JFrame {
             // Agregar nuevo curso
             if (!isEdit) {
                 idCarrera = carrera.getIdCarrera();
+
+                if(cbCarrera.getSelectedIndex() == 0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una carrera");
+                    return;
+                }
+
                 try {
                     mensaje = CursosController.agregarCurso(
                             new Curso(0, nombreCurso, descripcion, creditos, horas, tipoCurso, "A", idCarrera, cupos));

@@ -199,7 +199,7 @@ public class EstudianteView extends JFrame {
 
         if (nombre.isEmpty() || apellido.isEmpty() || cedula.isEmpty() || correo.isEmpty() || telefono.isEmpty()
                 || direccion.isEmpty()
-                || fechaNacimiento.isEmpty() || fechaIngreso.isEmpty() || cbCarrera.getSelectedIndex() == 0) {
+                || fechaNacimiento.isEmpty() || fechaIngreso.isEmpty() ) {
             JOptionPane.showMessageDialog(null, "Todos los campos son requeridos");
             return;
         } else {
@@ -209,6 +209,12 @@ public class EstudianteView extends JFrame {
             if (!isEdit) {
                 // Crear un nuevo estudiante
                 idCarrera = ((Carrera) cbCarrera.getSelectedItem()).getIdCarrera();
+
+                if(cbCarrera.getSelectedIndex() == 0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una carrera");
+                    return;
+                }
+
                 Estudiante estudiante = new Estudiante(1, nombre, apellido, cedula, correo, telefono, direccion,
                         fechaNacimiento,
                         "Activo",

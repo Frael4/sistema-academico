@@ -180,18 +180,23 @@ public class CursoView extends JFrame {
         KeyAdapter keyAdapter = new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() > 2)
+                JTextField source = (JTextField) e.getSource();
+                if (source.getText().length() >= 3) {
                     e.consume();
+                }
             }
         };
 
         KeyAdapter keyAdapterCreditos = new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() > 2)
+                JTextField source = (JTextField) e.getSource();
+                if (source.getText().length() >= 2) {
                     e.consume();
+                }
             }
         };
+
         txtHoras.addKeyListener(keyAdapter);
         txtCupos.addKeyListener(keyAdapter);
         txtCreditos.addKeyListener(keyAdapterCreditos);
@@ -234,7 +239,7 @@ public class CursoView extends JFrame {
             if (!isEdit) {
                 idCarrera = carrera.getIdCarrera();
 
-                if(cbCarrera.getSelectedIndex() == 0){
+                if (cbCarrera.getSelectedIndex() == 0) {
                     JOptionPane.showMessageDialog(null, "Seleccione una carrera");
                     return;
                 }

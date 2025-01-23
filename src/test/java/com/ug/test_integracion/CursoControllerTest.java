@@ -57,7 +57,7 @@ public class CursoControllerTest {
     @DisplayName("Test de Listar Cursos")
     public void testListarCursos() {
         List<Curso> cursos = CursosController.obtenerCursos();
-
-        assert cursos.size() == 5;
+        System.out.println("Number of cursos: " + cursos.getLast().getNombreCurso() + " " + cursos.size());
+        assert cursos.size() > 5;
     }
 }

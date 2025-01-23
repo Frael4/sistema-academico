@@ -32,7 +32,7 @@ public class CarreraController {
         carrera.setIdCarrera(++idCarrera);
         carreras.add(carrera);
         System.out.println("Carrera agregada correctamente!");
-        return "Carrera agregada correctamente!";
+        return "Carrera agregada con éxito";
     }
 
     /**

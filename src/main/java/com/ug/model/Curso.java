@@ -38,7 +38,7 @@ public class Curso {
      * @return
      */
     public boolean esValidoHorasTotal() {
-        return (horasCurso <= 120 && horasCurso > 80);
+        return (horasCurso <= 120 && horasCurso >= 80);
     }
 
     /**
@@ -46,7 +46,7 @@ public class Curso {
      * @return
      */
     public boolean esValidoCreditos() {
-        return (creditosCurso <= 10);
+        return (creditosCurso > 10);
     }
 
     @Override

@@ -32,17 +32,21 @@ public class CursosController {
 
     /**
      * Agregar un curso
+     * 
      * @param curso
      * @return
      * @throws CursoExcepcion
      */
     public static String agregarCurso(Curso curso) throws CursoExcepcion {
 
-        if(curso.esValidoCantidadCuposMax())
+        if (curso.esValidoCantidadCuposMax())
             throw new CursoExcepcion("Cantidad de cupos no puede ser mayor a 40");
-        
-        if(curso.esValidoHorasTotal())
+
+        if (!curso.esValidoHorasTotal())
             throw new CursoExcepcion("Cantidad de horas no puede ser mayor a 120 ni menor a 80");
+
+        if (curso.esValidoCreditos())
+            throw new CursoExcepcion("Cantidad de creditos no puede ser mayor a 10");
 
         curso.setIdCurso(++idCurso);
         cursos.add(curso);
@@ -52,6 +56,7 @@ public class CursosController {
 
     /**
      * Eliminar un curso
+     * 
      * @param idCurso
      * @return
      */
@@ -63,6 +68,7 @@ public class CursosController {
 
     /**
      * Editar un curso
+     * 
      * @param curso
      * @return
      * @throws CursoExcepcion
@@ -89,6 +95,7 @@ public class CursosController {
 
     /**
      * Buscar un curso por su id
+     * 
      * @param idCurso
      * @return
      */
@@ -105,6 +112,7 @@ public class CursosController {
 
     /**
      * Obtener cursos por id
+     * 
      * @param idsCursos
      * @return
      */
@@ -114,6 +122,7 @@ public class CursosController {
 
     /**
      * Obtener cursos por id de carrera
+     * 
      * @param idCarrera
      * @return
      */
@@ -123,6 +132,7 @@ public class CursosController {
 
     /**
      * Actualizar cupos de un curso
+     * 
      * @param idCurso
      * @param cupo
      * @return
